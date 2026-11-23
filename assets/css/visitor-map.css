@@ -1,0 +1,59 @@
+/* visitor-map.css — styles for #site-analytics */
+
+.vm-section { margin: 40px 0 8px; padding-top: 24px; border-top: 1px solid #e6e6e6; }
+
+.vm-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 4px 22px; margin-bottom: 14px; }
+.vm-header h2 { margin: 0; }
+.vm-stat { font-size: 14px; color: #555; }
+.vm-stat strong { color: #1f2328; font-size: 15px; font-variant-numeric: tabular-nums; }
+
+.vm-body { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+
+/* ---- map ---- */
+.vm-map { position: relative; flex: 1 1 400px; min-width: 260px; border-radius: 12px; overflow: hidden;
+  background: #e3edf3; box-shadow: 0 2px 10px rgba(30, 50, 70, .12); }
+.vm-svg { display: block; width: 100%; height: auto; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.vm-svg.vm-dragging { cursor: grabbing; }
+.vm-ocean { fill: #e3edf3; }
+
+.vm-country { stroke: #ffffff; stroke-width: .6px; vector-effect: non-scaling-stroke; transition: filter .15s; }
+.vm-country:hover { filter: brightness(.94); }
+.vm-ct-NA { fill: #a9bfa4; }
+.vm-ct-SA { fill: #b6c79a; }
+.vm-ct-EU { fill: #d8c79a; }
+.vm-ct-AF { fill: #d9b48c; }
+.vm-ct-AS { fill: #c9b5a6; }
+.vm-ct-OC { fill: #a7bfc6; }
+.vm-ct-AN { fill: #f1f4f6; }
+.vm-ct-XX { fill: #cfd6dc; }
+
+.vm-continent { fill: #4a5560; font-weight: 600; letter-spacing: .02em; pointer-events: none;
+  paint-order: stroke; stroke: rgba(255,255,255,.7); stroke-width: 3px; stroke-linejoin: round;
+  font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif; transition: opacity .2s; }
+
+.vm-dot { fill: #f08c00; stroke: #ffffff; cursor: pointer; opacity: .95; }
+.vm-dot:hover { fill: #e8590c; }
+
+/* ---- controls ---- */
+.vm-controls { position: absolute; left: 10px; bottom: 10px; display: flex; flex-direction: column; gap: 6px; }
+.vm-controls button { width: 30px; height: 30px; padding: 0; border: 1px solid #cfd6dc; border-radius: 6px; background: #fff;
+  color: #333; font-size: 17px; line-height: 28px; text-align: center; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.vm-controls button:hover { background: #f3f5f7; }
+.vm-controls button:focus-visible { outline: 2px solid #3a7bd5; outline-offset: 1px; }
+
+/* ---- tooltip & popup ---- */
+.vm-tip { position: absolute; z-index: 3; pointer-events: none; max-width: 240px; padding: 4px 8px; border-radius: 4px;
+  background: rgba(25, 28, 32, .88); color: #fff; font-size: 12px; line-height: 1.4; white-space: nowrap; }
+.vm-popup { position: absolute; z-index: 4; min-width: 140px; max-width: 240px; padding: 8px 10px; border-radius: 8px;
+  background: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: 13px; line-height: 1.4; }
+.vm-popup-place { font-weight: 600; color: #1f2328; }
+.vm-popup-count { color: #e8590c; margin-top: 2px; }
+
+/* ---- locations ---- */
+.vm-locations { flex: 1 1 260px; min-width: 220px; }
+.vm-locations h3 { margin: 0 0 10px; font-size: 17px; }
+.vm-locations-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 6px 18px; font-size: 14px; }
+@media (min-width: 900px) { .vm-locations-list { grid-template-columns: 1fr 1fr; } }
+.vm-locations-list li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vm-locations-list strong { color: #1f2328; font-variant-numeric: tabular-nums; }
+.vm-empty { color: #888; }
