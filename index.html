@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="./assets/css/publications.css">
     <style>
       .seeking { color: #d9480f; font-weight: bold; }
-      .todo { background: #fff3bf; color: #5c4400; padding: 0 3px; border-radius: 3px; }
     </style>
   </head>
   <body>
@@ -43,11 +42,9 @@
         <br>
         <br>
         <div class="social-icons">
-          <!-- TODO: fill in links; delete any icon you don't need -->
-          <a href="https://scholar.google.com/" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-          <a href="assets/files/CV_Shengyun_Zhong.pdf" title="CV"><i class="ai ai-cv"></i></a>
+          <a href="https://scholar.google.com/citations?user=rKhYq1gAAAAJ" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
           <a href="https://github.com/ShengyunZhong" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/shengyun-zhong-0202692a9/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
         <br>
       </header>
@@ -57,7 +54,7 @@
 
 <p>I am a master's student in Electrical and Computer Engineering at <a href="https://www.northeastern.edu/">Northeastern University</a>, expected to graduate in December 2026. I received my B.S. in Computer Science from Zhejiang University of Science and Technology.</p>
 
-<p>My research focuses on <strong>multimodal large language models for real-time video understanding</strong>. I co-led <strong>MOBA-VL</strong>, a 9B vision-language model that watches esports matches and commentates second by second. It is trained with supervised fine-tuning followed by GRPO with event-localized credit assignment, and runs streaming inference that reuses and periodically resets the KV cache. Going forward, I am excited about extending streaming perception toward <strong>world models</strong> and <strong>vision-language-action models</strong>.</p>
+<p>My research focuses on <strong>multimodal large language models for real-time video understanding</strong>. During a research internship at Zhejiang University with Prof. Linchao Zhu, I co-led <strong>MOBA-VL</strong>, a 9B vision-language model that watches esports matches and commentates second by second. It uses game telemetry as supervision and is trained with event-localized multi-turn reinforcement learning, and it runs streaming inference that reuses and periodically resets the KV cache. Going forward, I am excited about extending streaming perception toward <strong>world models</strong> and <strong>vision-language-action models</strong>.</p>
 
 <p class="seeking">I am looking for Ph.D. positions starting Spring / Fall 2027.</p>
 
@@ -73,8 +70,8 @@
 
 <ul>
   <li><strong>[Nov. 2026]</strong> I am applying for Ph.D. programs for Spring / Fall 2027.</li>
-  <li><strong>[<span class="todo">Month</span> 2026]</strong> Our preprint <strong>MOBA-VL</strong> on real-time esports commentary is released. <span class="todo">TODO</span></li>
-  <li><strong>[2025]</strong> Our team TenInOneSR's solution is included in the NTIRE 2025 Efficient Super-Resolution Challenge report (CVPR 2025 Workshop).</li>
+  <li><strong>[Sept. 2026]</strong> Our preprint <a href="https://arxiv.org/abs/2609.38428"><strong>MOBA-VL</strong></a> on real-time MOBA commentary is released on arXiv.</li>
+  <li><strong>[2025]</strong> Our team's TenInOneSR solution is included in the NTIRE 2025 Efficient Super-Resolution Challenge report (CVPR 2025 Workshop).</li>
 </ul>
 
 <h2 id="publications" class="publications-heading">Publications</h2>
@@ -85,18 +82,17 @@
 <li>
 <div class="pub-row">
   <div class="col-sm-3 abbr">
-    <img src="./assets/img/teaser_mobavl.svg" class="teaser img-fluid z-depth-1" alt="MOBA-VL" loading="lazy" />
+    <img src="./assets/img/teaser_mobavl.jpg" class="teaser img-fluid z-depth-1" alt="MOBA-VL" loading="lazy" />
     <abbr class="badge">Preprint</abbr>
   </div>
   <div class="col-sm-9">
-    <div class="title"><a href="#">MOBA-VL: <span class="todo">Full Paper Title</span></a></div>
-    <div class="author"><strong>Shengyun Zhong*</strong>, <span class="todo">Co-first Author*</span>, <span class="todo">Other Authors</span> (*Equal contribution)</div>
-    <div class="periodical"><em>Preprint, 2026.</em></div>
+    <div class="title"><a href="https://arxiv.org/abs/2609.38428">MOBA-VL: Event-Localized Multi-Turn Reinforcement Learning for Real-Time MOBA Commentary</a></div>
+    <div class="author"><strong>Shengyun Zhong*</strong>, Xinkang Zhao*, Ziyuan Chu, Linchao Zhu (*Equal contribution)</div>
+    <div class="periodical"><em>arXiv preprint arXiv:2609.38428, 2026.</em></div>
     <div class="links">
-      <a href="#" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">arXiv</a>
-      <a href="#" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Project Page</a>
-      <a href="#" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Code</a>
-      <a href="#" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Demo</a>
+      <a href="https://arxiv.org/abs/2609.38428" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">arXiv</a>
+      <a href="https://arxiv.org/pdf/2609.38428" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">PDF</a>
+      <a href="https://moba-vl.github.io" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Project Page &amp; Demo</a>
     </div>
   </div>
 </div>
@@ -114,16 +110,16 @@
 <li>
 <div class="pub-row">
   <div class="col-sm-3 abbr">
-    <img src="./assets/img/teaser_ntire_sr.svg" class="teaser img-fluid z-depth-1" alt="NTIRE Efficient SR" loading="lazy" />
+    <img src="./assets/img/teaser_ntire_esr.jpg" class="teaser img-fluid z-depth-1" alt="TenInOneSR architecture" loading="lazy" />
     <abbr class="badge">CVPRW</abbr>
   </div>
   <div class="col-sm-9">
-    <div class="title"><a href="#">NTIRE 2025 Challenge on Efficient Super-Resolution: Methods and Results</a></div>
-    <div class="author"><span class="todo">..., <strong>Shengyun Zhong</strong>, ...</span></div>
+    <div class="title"><a href="https://arxiv.org/abs/2504.10686">The Tenth NTIRE 2025 Efficient Super-Resolution Challenge Report</a></div>
+    <div class="author">Bin Ren, Hang Guo, Lei Sun, Zongwei Wu, Radu Timofte, Yawei Li, et al. (incl. <strong>Shengyun Zhong</strong>)</div>
     <div class="periodical"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops <strong>(CVPRW)</strong>, 2025.</em></div>
     <div class="links">
-      <a href="#" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">PDF</a>
-      <strong><i class="notes">Team TenInOneSR</i></strong>
+      <a href="https://arxiv.org/abs/2504.10686" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">arXiv</a>
+      <strong><i class="notes">Team TACO_SR (TenInOneSR)</i></strong>
     </div>
   </div>
 </div>
