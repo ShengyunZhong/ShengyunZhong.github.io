@@ -27,6 +27,9 @@
       .seeking { color: #d9480f; font-weight: bold; }
       .copy-toast { position: fixed; left: 50%; top: 50%; transform: translate(-50%, calc(-100% - 12px)); white-space: nowrap; background: #222; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 99; }
       .copy-toast.show { opacity: 1; }
+      ul.two-col { columns: 2; column-gap: 28px; }
+      ul.two-col li { break-inside: avoid; margin-bottom: 4px; }
+      @media (max-width: 640px) { ul.two-col { columns: 1; } }
     </style>
   </head>
   <body>
@@ -66,12 +69,27 @@
   <li><strong>World Action Models:</strong> models that predict how the world evolves and act on it, bridging video world models and vision-language-action (VLA) policies</li>
 </ul>
 
+<h2 id="technical-expertise">Technical Expertise</h2>
+
+<ul class="two-col">
+  <li>Large-Scale Video&ndash;Text Data Curation</li>
+  <li>ASR Transcription, Cleaning and Filtering</li>
+  <li>Telemetry-Grounded Evaluation Systems</li>
+  <li>Benchmark Construction</li>
+  <li>Full-Parameter SFT of 9B VLMs</li>
+  <li>Multi-Turn Reinforcement Learning (GRPO)</li>
+  <li>Event-Localized Credit Assignment</li>
+  <li>NLI-Based Reward Modeling</li>
+  <li>Streaming VLM Inference with KV-Cache Reuse</li>
+  <li>Distributed Training (DeepSpeed ZeRO-3)</li>
+</ul>
+
 <h2 id="news">News</h2>
 
 <ul>
   <li><strong>[Nov. 2026]</strong> I am applying for Ph.D. programs for Spring / Fall 2027.</li>
   <li><strong>[Sept. 2026]</strong> Our preprint <a href="https://arxiv.org/abs/2609.38428"><strong>MOBA-VL</strong></a> on real-time MOBA commentary is released on arXiv.</li>
-  <li><strong>[2025]</strong> Our team's TenInOneSR solution is included in the NTIRE 2025 Efficient Super-Resolution Challenge report (CVPR 2025 Workshop).</li>
+  <li><strong>[2025]</strong> Our team TACO_SR won <strong>1st place</strong> in the NTIRE 2025 KwaiSR track, and our TenInOneSR solution is included in the NTIRE 2025 Efficient Super-Resolution report (CVPR 2025 Workshops).</li>
 </ul>
 
 <h2 id="publications" class="publications-heading">Publications</h2>
@@ -120,6 +138,26 @@
     <div class="links">
       <a href="https://arxiv.org/abs/2504.10686" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">arXiv</a>
       <span style="font-size:0.9em;">Team TACO_SR (TenInOneSR)</span>
+    </div>
+  </div>
+</div>
+</li>
+<br />
+
+<li>
+<div class="pub-row">
+  <div class="col-sm-3 abbr">
+    <img src="./assets/img/teaser_ntire_kwaisr.jpg" class="teaser img-fluid z-depth-1" alt="PiNAFusion-SR framework" loading="lazy" />
+    <abbr class="badge">CVPRW</abbr>
+  </div>
+  <div class="col-sm-9">
+    <div class="title"><a href="https://openaccess.thecvf.com/content/CVPR2025W/NTIRE/html/A_Li_NTIRE_2025_Challenge_on_Short-form_UGC_Video_Quality_Assessment_and_CVPRW_2025_paper.html">NTIRE 2025 Challenge on Short-form UGC Video Quality Assessment and Enhancement: Methods and Results</a></div>
+    <div class="author">Xin Li, Kun Yuan, Bingchen Li, Fengbin Guan, Yizhen Shao, Zihao Yu, et al. (incl. <strong>Shengyun Zhong</strong>)</div>
+    <div class="periodical"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops <strong>(CVPRW)</strong>, 2025.</em></div>
+    <div class="links">
+      <a href="https://openaccess.thecvf.com/content/CVPR2025W/NTIRE/papers/A_Li_NTIRE_2025_Challenge_on_Short-form_UGC_Video_Quality_Assessment_and_CVPRW_2025_paper.pdf" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">PDF</a>
+      <a href="https://arxiv.org/abs/2504.13131" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">arXiv</a>
+      <span style="font-size:0.9em;"><strong>1st Place</strong>, Track 2 (KwaiSR) · Team TACO_SR (PiNAFusion-SR)</span>
     </div>
   </div>
 </div>
