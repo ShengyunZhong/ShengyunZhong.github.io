@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="./assets/css/publications.css">
     <style>
       .seeking { color: #d9480f; font-weight: bold; }
-      .copy-toast { position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%); background: #222; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 99; }
+      .copy-toast { position: fixed; left: 50%; top: 50%; transform: translate(-50%, calc(-100% - 12px)); white-space: nowrap; background: #222; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 99; }
       .copy-toast.show { opacity: 1; }
     </style>
   </head>
@@ -141,14 +141,14 @@
       (function () {
         var addr = ['zhong.sheng', 'northeastern.edu'].join('@');
         var toast = document.getElementById('copy-toast');
-        function show(msg) { toast.textContent = msg; toast.classList.add('show'); clearTimeout(show.t); show.t = setTimeout(function () { toast.classList.remove('show'); }, 1800); }
+        function show(msg, x, y) { toast.textContent = msg; var w = toast.offsetWidth || 280; x = Math.min(Math.max(x, w / 2 + 8), window.innerWidth - w / 2 - 8); y = Math.max(y, 56); toast.style.left = x + 'px'; toast.style.top = y + 'px'; toast.classList.add('show'); clearTimeout(show.t); show.t = setTimeout(function () { toast.classList.remove('show'); }, 1800); }
         function fallback() { var t = document.createElement('textarea'); t.value = addr; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} document.body.removeChild(t); return ok; }
         document.querySelectorAll('.copy-email').forEach(function (el) {
           el.addEventListener('click', function (e) {
             e.preventDefault();
-            var done = function () { show('Email copied: ' + addr); };
-            if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(addr).then(done, function () { fallback() ? done() : show(addr); }); }
-            else { fallback() ? done() : show(addr); }
+            var x = e.clientX, y = e.clientY; if (!x && !y) { var r = el.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top; } var done = function () { show('Email copied: ' + addr, x, y); };
+            if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(addr).then(done, function () { fallback() ? done() : show(addr, x, y); }); }
+            else { fallback() ? done() : show(addr, x, y); }
           });
         });
       })();
