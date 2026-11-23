@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     <style>
       .seeking { color: #d9480f; font-weight: bold; }
-      .visitor-map a { cursor: default; }
       .copy-toast { position: fixed; left: 50%; top: 50%; transform: translate(-50%, calc(-100% - 12px)); white-space: nowrap; background: #222; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 99; }
       .copy-toast.show { opacity: 1; }
     </style>
@@ -130,8 +129,8 @@
 </div>
 
       <br>
-      <div class="visitor-map" style="max-width:320px;margin:10px auto 0;">
-        <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=BdXbbnNaUdvXsIP1UuwalYFKWQxP6r4Gn39ialhELdg&amp;cl=ffffff&amp;w=a"></script>
+      <div class="visitor-map" style="text-align:center;margin:10px 0 0;">
+        <img src="https://s05.flagcounter.com/count/J1Po/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Visitor countries" border="0">
       </div>
       <br>
       <p><small>Powered by <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
@@ -155,21 +154,6 @@
             else { fallback() ? done() : show(addr, x, y); }
           });
         });
-      })();
-    </script>
-    <script>
-      // Keep the visitor map interactive (zoom / drag) but stop it from opening the stats page.
-      (function () {
-        var box = document.querySelector('.visitor-map');
-        if (!box) return;
-        box.addEventListener('click', function (e) {
-          var a = e.target.closest('a');
-          if (a && box.contains(a)) e.preventDefault();
-        }, true);
-        box.addEventListener('auxclick', function (e) { if (e.target.closest('a')) e.preventDefault(); }, true);
-        function strip() { box.querySelectorAll('a[href]').forEach(function (a) { a.removeAttribute('href'); a.removeAttribute('title'); }); }
-        new MutationObserver(strip).observe(box, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
-        strip();
       })();
     </script>
     <!-- Statcounter (invisible) -->
