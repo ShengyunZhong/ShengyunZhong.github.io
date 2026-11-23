@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="./assets/css/publications.css">
     <style>
       .seeking { color: #d9480f; font-weight: bold; }
+      .copy-toast { position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%); background: #222; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 99; }
+      .copy-toast.show { opacity: 1; }
     </style>
   </head>
   <body>
@@ -37,7 +39,7 @@
         <br>
         <a href="https://www.northeastern.edu/" rel="noopener"><autocolor>Northeastern University</autocolor></a>
         <br>
-        <a href="mailto:zhong.sheng@northeastern.edu"><email>zhong.sheng (at) northeastern.edu</email></a>
+        <a href="#" class="copy-email" title="Click to copy email"><email>zhong.sheng (at) northeastern.edu</email></a>
 
         <br>
         <br>
@@ -54,7 +56,7 @@
 
 <p>I am a master's student in Electrical and Computer Engineering at <a href="https://www.northeastern.edu/">Northeastern University</a>, expected to graduate in December 2026. I received my B.S. in Computer Science from Zhejiang University of Science and Technology. I am currently advised by <a href="https://scholar.google.com/citations?user=9ZukE28AAAAJ&amp;hl=en">Prof. Linchao Zhu</a> at Zhejiang University, and was previously advised by <a href="https://scholar.google.com/citations?user=9ajdZaEAAAAJ&amp;hl=en">Prof. Zhengzhong Tu</a>.</p>
 
-<p class="seeking">I am looking for Ph.D. positions starting Spring / Fall 2027. If you have an opening that may fit, please feel free to <a href="mailto:zhong.sheng@northeastern.edu">contact me</a>!</p>
+<p class="seeking">I am looking for Ph.D. positions starting Spring / Fall 2027. If you have an opening that may fit, please feel free to <a href="#" class="copy-email" title="Click to copy email">contact me</a>!</p>
 
 <h2 id="research-interests">Research Interests</h2>
 
@@ -134,5 +136,22 @@
       <footer>
       </footer>
     </div>
+    <div class="copy-toast" id="copy-toast"></div>
+    <script>
+      (function () {
+        var addr = ['zhong.sheng', 'northeastern.edu'].join('@');
+        var toast = document.getElementById('copy-toast');
+        function show(msg) { toast.textContent = msg; toast.classList.add('show'); clearTimeout(show.t); show.t = setTimeout(function () { toast.classList.remove('show'); }, 1800); }
+        function fallback() { var t = document.createElement('textarea'); t.value = addr; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} document.body.removeChild(t); return ok; }
+        document.querySelectorAll('.copy-email').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            var done = function () { show('Email copied: ' + addr); };
+            if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(addr).then(done, function () { fallback() ? done() : show(addr); }); }
+            else { fallback() ? done() : show(addr); }
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
