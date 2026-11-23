@@ -87,9 +87,9 @@
     var k = 1 / scale;
     dotLayer.querySelectorAll("circle").forEach(function (c) {
       c.setAttribute("r", (Number(c.dataset.r) * Math.pow(k, 0.6)).toFixed(2));
-      c.setAttribute("stroke-width", (1.2 * k).toFixed(3));
+      c.setAttribute("stroke-width", (2.5 * k).toFixed(3));
     });
-    labelLayer.style.fontSize = (13 * Math.pow(k, 0.7)).toFixed(2) + "px";
+    labelLayer.style.fontSize = (30 * Math.pow(k, 0.7)).toFixed(2) + "px";
     labelLayer.style.opacity = scale > 3.5 ? "0" : "1";
     positionPopup();
   }
@@ -228,7 +228,7 @@
       if (typeof loc.latitude !== "number" || typeof loc.longitude !== "number") return;
       var xy = project(loc.longitude, loc.latitude);
       var dot = el("circle", { cx: xy[0].toFixed(2), cy: xy[1].toFixed(2), "class": "vm-dot" });
-      dot.dataset.r = (3 + 3.5 * Math.sqrt((loc.visits || 1) / max)).toFixed(2);
+      dot.dataset.r = (9 + 7 * Math.sqrt((loc.visits || 1) / max)).toFixed(2);
       dot.__loc = loc;
       dotLayer.appendChild(dot);
     });
