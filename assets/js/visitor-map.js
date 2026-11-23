@@ -276,7 +276,7 @@
     mode: "cors",
     keepalive: true,
     headers: { "Content-Type": "application/json" },
-    body: "{}"
+    body: JSON.stringify({ path: location.pathname, referrer: document.referrer || "" })
   }).catch(function () {});
 
   tracked.then(function () {
