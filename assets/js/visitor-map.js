@@ -271,17 +271,7 @@
   render();
   if (!API) return;
 
-  // Owner opt-out: open the site once with ?notrack=1 on each browser to stop counting
-  // your own visits (?notrack=0 turns counting back on). Stored only in this browser.
-  var skipTracking = false;
-  try {
-    var flag = new URLSearchParams(location.search).get("notrack");
-    if (flag === "1") localStorage.setItem("vm-notrack", "1");
-    if (flag === "0") localStorage.removeItem("vm-notrack");
-    skipTracking = localStorage.getItem("vm-notrack") === "1";
-  } catch (e) {}
-
-  var tracked = skipTracking ? Promise.resolve() : fetch(API + "/track", {
+  var tracked = fetch(API + "/track", {
     method: "POST",
     mode: "cors",
     keepalive: true,
