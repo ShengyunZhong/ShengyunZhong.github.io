@@ -26,6 +26,30 @@
       .seeking { color: #d9480f; font-weight: bold; }
       .copy-toast { position: fixed; left: 50%; top: 50%; transform: translate(-50%, calc(-100% - 12px)); white-space: nowrap; background: #222; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 99; }
       .copy-toast.show { opacity: 1; }
+      .site-analytics { margin: 36px 0 8px; padding-top: 22px; border-top: 1px solid #e5e5e5; }
+      .sa-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; margin-bottom: 12px; }
+      .sa-head h2 { margin: 0; }
+      .sa-head .sa-stat { font-size: 14px; color: #555; }
+      .sa-head .sa-stat strong { color: #222; font-size: 15px; }
+      .sa-body { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+      .sa-map-wrap { position: relative; flex: 1 1 380px; min-width: 260px; border-radius: 10px; overflow: hidden; background: #eaf1f7; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+      .sa-map { display: block; width: 100%; height: auto; cursor: grab; touch-action: none; user-select: none; }
+      .sa-map.dragging { cursor: grabbing; }
+      .sa-country { fill: #d4dbe3; stroke: #ffffff; stroke-width: .5px; vector-effect: non-scaling-stroke; transition: fill .15s; }
+      .sa-country:hover { fill: #bfc9d4; }
+      .sa-country.sa-visited { fill: #3a7bd5; }
+      .sa-country.sa-visited:hover, .sa-country.sa-hl { fill: #1f5fbf; fill-opacity: 1 !important; }
+      .sa-dot { fill: #f08c00; stroke: #fff; pointer-events: all; }
+      .sa-controls { position: absolute; left: 10px; bottom: 10px; display: flex; flex-direction: column; gap: 6px; }
+      .sa-controls button { width: 30px; height: 30px; border: 1px solid #ccd3da; border-radius: 6px; background: #fff; color: #333; font-size: 17px; line-height: 1; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+      .sa-controls button:hover { background: #f3f5f7; }
+      .sa-tip { position: absolute; pointer-events: none; background: rgba(20,20,20,.85); color: #fff; font-size: 12px; padding: 4px 8px; border-radius: 4px; white-space: nowrap; }
+      .sa-side { flex: 0 1 200px; min-width: 170px; }
+      .sa-side h3 { margin: 0 0 8px; font-size: 16px; }
+      .sa-list { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+      .sa-list li { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; border-bottom: 1px dashed #eee; cursor: default; }
+      .sa-list li strong { font-variant-numeric: tabular-nums; }
+      .sa-list .sa-empty { color: #888; border: 0; }
     </style>
   </head>
   <body>
@@ -127,6 +151,31 @@
 
 </ol>
 </div>
+
+      <section class="site-analytics" id="site-analytics" data-api="https://shengyun-visitor-api.shengyunzhong.workers.dev">
+        <div class="sa-head">
+          <h2>Site Analytics</h2>
+          <span class="sa-stat"><strong class="sa-all">–</strong> times all-time</span>
+          <span class="sa-stat"><strong class="sa-30">–</strong> times in 30 days</span>
+        </div>
+        <div class="sa-body">
+          <div class="sa-map-wrap">
+            <svg class="sa-map" role="img" aria-label="Interactive map of visitor countries"></svg>
+            <div class="sa-controls">
+              <button type="button" class="sa-zoom-in" aria-label="Zoom in">+</button>
+              <button type="button" class="sa-zoom-out" aria-label="Zoom out">&minus;</button>
+              <button type="button" class="sa-reset" aria-label="Reset view">&#8634;</button>
+            </div>
+            <div class="sa-tip" hidden></div>
+          </div>
+          <div class="sa-side">
+            <h3>Locations</h3>
+            <ul class="sa-list"><li class="sa-empty">Loading…</li></ul>
+          </div>
+        </div>
+      </section>
+      <script src="./assets/js/world-map-data.js" defer></script>
+      <script src="./assets/js/visitor-analytics.js" defer></script>
 
       <br>
       <p><small>Powered by <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
